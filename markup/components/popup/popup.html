@@ -2,14 +2,38 @@
     
 </div>
 <div class="blur">
-    <div class="popup popup-thanx modal-1 modal">
+    <div class="popup popup-add modal-1 modal">
         <img data-src='static/img/content/popup-branch-1.png'>
         <img data-src='static/img/content/popup-branch-2.png'>
         <div class="modal__close popup__close">
+            <svg role="img" xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" viewBox="0 0 24 24" aria-labelledby="closeIconTitle" stroke="#000" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" fill="none" color="#000"> <title id="closeIconTitle">Close</title> <path d="M6.34314575 6.34314575L17.6568542 17.6568542M6.34314575 17.6568542L17.6568542 6.34314575"/> </svg>
+        </div>
+        <div class="modal__title">
+            Add card
         </div>
 
-        <div class="modal__title">
-            Спасибо, ваше сообщение отправлено!
-        </div>
+        
+        <form action="#" class="form">
+            <div id="main" class="input-file" role="main">
+                <label class="attachment_btn">Choose image<input type="file"></label>
+                <div class="photo_box">
+                    <div class="content get-img" ></div>
+                </div>
+            </div>
+    
+            <input type="text" name="title" class="get-title" placeholder="Title of card">
+            <input type="text" name="ctg" class="get-ctg" placeholder="Category">
+            <input type="text" name="desc" class="get-desc" placeholder="Description of card">
+            <input type="text" name="rating" class="get-rating" placeholder="Rating">
+            <input type="text" name="curprice" class="get-curprice" placeholder="Current price">
+            <input type="text" name="old" class="get-old" placeholder="Old price">
+            <input type="text" name="dc" class="get-dc" placeholder="Discount">
+            
+            <button class="add-card-button">
+                Add card
+            </button>
+        </form>
+
+        
     </div>
 </div>

@@ -50,6 +50,9 @@
                 <path d="M10.4002 7.9998L10.8245 8.42407C11.0588 8.18975 11.0588 7.80986 10.8245 7.57554L10.4002 7.9998ZM7.62446 4.37554C7.39015 4.14123 7.01025 4.14123 6.77593 4.37554C6.54162 4.60986 6.54162 4.98975 6.77593 5.22407L7.62446 4.37554ZM6.77593 10.7755C6.54162 11.0099 6.54162 11.3898 6.77593 11.6241C7.01025 11.8584 7.39014 11.8584 7.62446 11.6241L6.77593 10.7755ZM6.77593 5.22407L9.97593 8.42407L10.8245 7.57554L7.62446 4.37554L6.77593 5.22407ZM9.97593 7.57554L6.77593 10.7755L7.62446 11.6241L10.8245 8.42407L9.97593 7.57554Z"
                 fill="#D0D5DD" />
             </symbol>
+            <symbol id="close" viewBox="0 0 24 24">
+                <path d="M6.34314575 6.34314575L17.6568542 17.6568542M6.34314575 17.6568542L17.6568542 6.34314575" />
+            </symbol>
             <symbol id="faq-1" viewBox="0 0 18 18">
                 <path d="M9.8 5.8C9.8 5.35817 9.44183 5 9 5C8.55817 5 8.2 5.35817 8.2 5.8H9.8ZM8.2 12.2C8.2 12.6418 8.55817 13 9 13C9.44183 13 9.8 12.6418 9.8 12.2H8.2ZM5.8 8.2C5.35817 8.2 5 8.55817 5 9C5 9.44183 5.35817 9.8 5.8 9.8V8.2ZM12.2 9.8C12.6418 9.8 13 9.44183 13 9C13 8.55817 12.6418 8.2 12.2 8.2V9.8ZM16.2 9C16.2 12.9765 12.9765 16.2 9 16.2V17.8C13.8601 17.8 17.8 13.8601 17.8 9H16.2ZM9 16.2C5.02355 16.2 1.8 12.9765 1.8 9H0.2C0.2 13.8601 4.13989 17.8 9 17.8V16.2ZM1.8 9C1.8 5.02355 5.02355 1.8 9 1.8V0.2C4.13989 0.2 0.2 4.13989 0.2 9H1.8ZM9 1.8C12.9765 1.8 16.2 5.02355 16.2 9H17.8C17.8 4.13989 13.8601 0.2 9 0.2V1.8ZM8.2 5.8V12.2H9.8V5.8H8.2ZM5.8 9.8H12.2V8.2H5.8V9.8Z"
                 fill="#7F56D9" />
@@ -215,7 +218,7 @@
                             Games
                         </div>
                         <div class="first__content">
-                            <div class="first__bg">
+                            <div class="first__bg m-bg-cont">
                                 <img src='static/img/content/first-bg-1.jpg' alt='Картинка'>
                             </div>
                             <div class="first__box">
@@ -297,7 +300,6 @@
                 </div>
             </div>
 
-
             <div class="prod">
                 <div class="wrapper">
                     <div class="prod__container">
@@ -307,7 +309,7 @@
                                 <div class="card__add-desc">
                                     You can add a product card by clicking on the button
                                 </div>
-                                <div class="card__add-button">
+                                <div class="card__add-button" data-popup="add">
 
                                     <svg class="icon__addButton" width="18px" height="19px">
                                         <use xlink:href="#addButton"></use>
@@ -973,6 +975,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="pag">
                 <div class="wrapper">
                     <div class="pag__container">
@@ -1266,12 +1269,7 @@
             </div>
 
 
-            <!-- <div id="main" class="input-file" role="main">
-            <div class="attachment_btn"><input type="file"></div>
-            <div class="photo_box">
-                <div class="content"></div>
-            </div>
-        </div> -->
+
 
         </main>
 
@@ -1281,15 +1279,44 @@
 
         </div>
         <div class="blur">
-            <div class="popup popup-thanx modal-1 modal">
+            <div class="popup popup-add modal-1 modal">
                 <img data-src='static/img/content/popup-branch-1.png'>
                 <img data-src='static/img/content/popup-branch-2.png'>
                 <div class="modal__close popup__close">
+                    <svg role="img" xmlns="http://www.w3.org/2000/svg" width="48px" height="48px" viewBox="0 0 24 24" aria-labelledby="closeIconTitle" stroke="#000" stroke-width="1" stroke-linecap="square" stroke-linejoin="miter" fill="none" color="#000">
+                        <title id="closeIconTitle">Close</title>
+                        <path d="M6.34314575 6.34314575L17.6568542 17.6568542M6.34314575 17.6568542L17.6568542 6.34314575" />
+                    </svg>
+                </div>
+                <div class="modal__title">
+                    Add card
                 </div>
 
-                <div class="modal__title">
-                    Спасибо, ваше сообщение отправлено!
-                </div>
+
+                <form action="#" class="form">
+                    <div id="main" class="input-file" role="main">
+                        <label class="attachment_btn">Choose image
+                            <input type="file">
+                        </label>
+                        <div class="photo_box">
+                            <div class="content get-img"></div>
+                        </div>
+                    </div>
+
+                    <input type="text" name="title" class="get-title" placeholder="Title of card">
+                    <input type="text" name="ctg" class="get-ctg" placeholder="Category">
+                    <input type="text" name="desc" class="get-desc" placeholder="Description of card">
+                    <input type="text" name="rating" class="get-rating" placeholder="Rating">
+                    <input type="text" name="curprice" class="get-curprice" placeholder="Current price">
+                    <input type="text" name="old" class="get-old" placeholder="Old price">
+                    <input type="text" name="dc" class="get-dc" placeholder="Discount">
+
+                    <button class="add-card-button">
+                        Add card
+                    </button>
+                </form>
+
+
             </div>
         </div>
         <!-- Main scripts. You can replace it, but I recommend you to leave it here     -->

@@ -321,36 +321,6 @@ $(document).ready(function () {
 		$(this).wrap("<figure></figure>")
 	});
 
-	$('.form').each(function () {
-		var it = $(this);
-		it.validate({
-			rules: {
-				message: {
-					required: true,
-				},
-				name: {
-					required: true,
-				},
-				nameProd: {
-					required: true,
-				},
-				check: {
-					required: true,
-				}
-			},
-
-			errorPlacement: function (error, element) {
-			},
-
-			submitHandler: function () {
-				$.ajax({
-					success: function () {
-						$(".thanx-trigger").trigger("click");
-					}
-				});
-			},
-		});
-	});
 
 	$('body').on('click', '[data-popup]', function (e) { //Вызов попапов
 		e.preventDefault();
@@ -466,6 +436,122 @@ $(document).ready(function () {
 		$(".info__slide").removeClass("active");
 		$(".info__slide:nth-child(" + index + ")").addClass("active");
 
+	});
+
+	
+	$('.form').each(function () {
+		var it = $(this);
+		it.validate({
+			rules: {
+				message: {
+					required: true,
+				},
+				name: {
+					required: true,
+				},
+				nameProd: {
+					required: true,
+				},
+				check: {
+					required: true,
+				},
+				title: {
+					required: true,
+				},
+				ctg: {
+					required: true,
+				},
+				desc: {
+					required: true,
+				},
+				rating: {
+					required: true,
+				},
+				curprice: {
+					required: true,
+				},
+			},
+
+			errorPlacement: function (error, element) {
+			},
+
+			submitHandler: function () {
+				var img = $(".get-img img").attr("src");
+				var title = $(".get-title").val();
+				var ctg = $(".get-ctg").val();
+				var desc = $(".get-desc").val();
+				var rating = $(".get-rating").val();
+				var curprice = $(".get-curprice").val();
+				var old = $(".get-old").val();
+				var dc = $(".get-dc").val();
+				console.log(img,
+					title,
+					ctg,
+					desc,
+					rating,
+					curprice,
+					old,
+					dc,
+				)
+				var addCard = $(".card__add").remove();
+				$(".prod__items").prepend(`
+				<div class="card">
+					<div class="card__img m-bg-cont">
+						<img src='${img}' alt='Картинка'>
+					</div>
+					<div class="card__content">
+						<div class="card__ctg ${ctg}"></div>
+						<a href="#" class="card__title">
+						${title}
+						</a>
+						<div class="card__rating">
+							<div class="rating">
+								<div class="stars">
+									<input type="radio" name="star" class="star-1" id="star-1" disabled />
+									<label class="star-1" for="star-1">1</label>
+									<input type="radio" name="star" class="star-2" id="star-2" disabled />
+									<label class="star-2" for="star-2">2</label>
+									<input type="radio" name="star" class="star-3" id="star-3"  disabled />
+									<label class="star-3" for="star-3">3</label>
+									<input type="radio" name="star" class="star-4" id="star-4"  disabled />
+									<label class="star-4" for="star-4">4</label>
+									<input type="radio" name="star" class="star-5" id="star-5" disabled />
+									<label class="star-5" for="star-5">5</label>
+									<span></span>
+								</div>
+							</div>
+							<div class="card__rating-text">
+								${rating}
+							</div>
+						</div>
+						<div class="card__desc">
+						${desc}
+						</div>
+						<div class="card__bottom">
+							<div class="card__price">
+								<div class="card__price-old">
+								$${old}
+								</div>
+								<div class="card__price-cur">
+								$${curprice}
+								</div>
+							</div>
+							<div class="card__dc">
+							${dc}%
+							</div>
+						</div>
+					</div>
+				</div>
+				`);
+				$(".prod__items").prepend(addCard);
+				$(".m-bg-cont").each(function () {
+					var img = $(this).find("img:first-of-type").attr("src");
+					$(this).css("background-image", "url(" + img + ")");
+				});
+				$('.modal__close').trigger("click")
+				it.find("input").val("");
+			},
+		});
 	});
 
 
