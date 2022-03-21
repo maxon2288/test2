@@ -1,0 +1,60 @@
+.pageNavFixed {
+	position: fixed;
+	z-index: 1500;
+	top: 0;
+	left: 0;
+	left: -460px;
+	width: 460px;
+	padding: 30px;
+	box-sizing: border-box;
+	border-radius: 0px 0px 30px 0px;
+	background-color: #fff;
+	transition: 0.5s;
+	border-right: 2px solid black;
+	border-bottom: 2px solid black;
+	&:hover {
+		left: 0px;
+	}
+	&::after {
+		content: 'NAV';
+		position: absolute;
+		width: 50px;
+		height: 30px;
+		top: 0;
+		right: -50px;
+		border-radius: 0px 0px 5px 0px;
+		background-color: black;
+		color: #7EB325;
+		padding: 5px;
+		padding-left: 10px;
+		box-sizing: border-box;
+		cursor: pointer;
+	}
+	&__cont {
+		width: 100%;
+		max-height: 600px;
+		overflow-x: hidden;
+		overflow-y: auto;
+		a {
+			display: block;
+			font-size: 16px;
+			line-height: 20px;
+			color: #7EB325;
+			margin-bottom: 10px;
+			&:hover {
+				text-decoration: underline;
+			}
+			&.completed {
+				color: green;
+			}
+		}
+		b {
+			display: block;
+			margin-bottom: 15px;
+		}
+		div {
+			margin: 0;
+			margin-bottom: 50px;
+		}
+	}
+}
